@@ -1,0 +1,23 @@
+.home
+  
+  .accounts
+    %h3
+      Existing Accounts
+    %table
+      %tr
+        %th id
+        %th identifier
+        %th theme
+
+      - Account.all.each do |accnt|
+        %tr
+          %td
+            = accnt.id
+          %td
+            = link_to accnt.identifier, accnt.base_url(request.host_with_port)
+          %td 
+            = accnt.theme
+
+  .new
+    Want to 
+    = link_to 'create a new account?', new_account_path
