@@ -1,0 +1,166 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "css3_mixins" 
+@import "mixins"
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600italic,800,300italic|Chelsea+Market|Lobster)
+
+button, a, input[type="submit"]
+  cursor: pointer
+  opacity: .8
+  &:hover
+    opacity: 1
+
+html, body
+  padding: 0
+  margin: 0
+
+html
+  background: image-url('wall.jpg') repeat 0 0
+  +handwriting
+
+#board
+  margin: 20px auto 0 auto
+  width: 580px
+  height: 350px
+  padding: 20px 0 0 0
+  position: relative
+  z-index: 2
+
+  .tape1, .tape2, .board
+    position: absolute
+
+  .board
+    top: 0
+    left: 0
+    z-index: -1
+    width: 580px
+
+  .tape1
+    left: -25px
+    top: -80px
+    +transform(-30)
+
+  .tape2
+    right: -10px
+    top: -90px
+
+  #postits
+    right: -100px
+    top: 17px
+    width: 190px
+    position: absolute
+
+  > h1, > textarea, > button
+    width: 440px
+    margin: auto
+
+  h1
+    font-size: 34pt
+    text-shadow: rgba(white, .3) -1px -1px
+    color: #333
+    padding-bottom: 15px
+
+  textarea
+    height: 80px
+    color: #888
+    font-size: 12pt
+    display: block
+    font-family: "open sans"
+    padding: 5px 10px
+    width: 420px
+
+  button
+    margin-top: 20px
+    display: block
+    background: rgba(black, .1)
+    +linear-gradient( rgba(#ccc, .1), rgba(black, .1)  )
+    +handwriting
+    font-size: 14pt
+    +border-radius(5px)
+    border: 1px solid
+    border-color: #e5e5e5 #666 #666 #e5e5e5
+    +box-shadow(1px, 2px, 3px, rgba(black, .4))
+
+
+#chalkboard
+  position: relative
+  width: 630px
+  margin: auto
+  z-index: 1
+  top: -68px
+
+  .chalkboard
+    width: 630px
+    display: block
+    margin: auto
+
+
+  #chalk_left
+    position: absolute
+    top: 17px
+    left: 40px
+
+
+#floor
+  margin-top: 250px
+  //background: image-url('floor.jpg') no-repeat 0 0
+  position: relative
+  height: 1200px
+  width: 100%
+  padding: 0
+
+
+  #base
+    width: 100%
+    overflow: hidden
+    height: 100%
+
+
+    img
+      position: relative
+      top: 0
+      left: 50%
+      margin-left: -739px
+
+
+  #blue_chalk_on_floor
+    position: absolute
+    top: 30px
+    left: 75%
+
+  #chair
+    position: absolute
+    top: -290px
+
+    #organization_account_paper
+      position: absolute
+      top: 406px
+      left: 129px
+
+      &:hover
+        cursor: pointer
+
+  #credits
+    position: absolute
+    bottom: 10px
+    left: 50%
+    margin-left: -252px
+
+    .hover
+      display: none
+      position: relative
+      top: -8px
+      left: 1px
+    &:hover
+      .hover
+        display: block
+      cursor: pointer
+      .base
+        display: none
+
+.home
+  display: none

@@ -1,0 +1,16 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+config/database.yml
+config/local_environment.yml
+config/application.rb
+*~
+.project
+.svn
+public/images/old
+*.DS_STORE
+.sass-cache/
+public/cache/
+public/system/avatars
+*.bk
