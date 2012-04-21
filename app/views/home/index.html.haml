@@ -22,6 +22,8 @@
 
 #floor
 
+  #moulding
+
   #base
     = image_tag 'floor.jpg'
 
@@ -39,6 +41,8 @@
     = image_tag 'credit_hover.png', :class => 'hover'
 
     = image_tag 'credits.png', :class => 'base'
+
+
 :javascript
 
   $(document).ready(function(){
@@ -61,7 +65,7 @@
     var r = Raphael("chalk_left", 100, 480);
 
     $(document).scroll(function(){
-      angle = 1;
+      angle = .6;
     });
 
     var string = r.path("M50,353l0,-398"),
