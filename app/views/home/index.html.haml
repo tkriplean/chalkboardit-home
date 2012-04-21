@@ -27,7 +27,7 @@
 
   #blue_chalk_on_floor
     = image_tag 'blue_chalk_on_floor.png'
-    
+
   #chair
     = image_tag 'chair.png'
 
@@ -46,6 +46,8 @@
     init_postits();
   });
 
+
+
   function init_postits(){
     var r = Raphael("postits", 210, 310);
 
@@ -57,6 +59,10 @@
 
   function init_chalk(){
     var r = Raphael("chalk_left", 100, 480);
+
+    $(document).scroll(function(){
+      angle = 1;
+    });
 
     var string = r.path("M50,353l0,-398"),
         img = r.image("#{image_path('yellow_chalk.png')}", 42.5, 350, 15, 49),
@@ -86,7 +92,7 @@
     }
 
     function oscillate(){
-      if ( angle > .01 ) {
+      if ( angle > .02  ) {
         set
           .animate({transform: 'r' + angle * modifier +',50,0'}, speed, "easeInOut", oscillate);
         modifier *= -1;
