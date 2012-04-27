@@ -8,11 +8,12 @@
   %h1
     Consider This...
 
-  %textarea
-    What issue do you want to consider?
+  - port_string = request.port != 80 ? ':' + request.port.to_s : '' 
+  = form_tag "http://help.#{request.host}#{port_string}/proposals", :method => :post do
 
-  %button
-    Invite people to help think through it
+    = text_area_tag 'proposal[description]', nil, :placeholder => 'What issue do you want to consider?'
+
+    = submit_tag 'Invite people to help think through it'
 
 #chalkboard
   = image_tag 'chalkboard.png', :class => 'chalkboard'
