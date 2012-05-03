@@ -5,7 +5,7 @@ gem 'rails', '3.2.2'
 gem 'thin'
 
 gem "haml"
-gem 'sass'
+gem 'sass-rails',   '~> 3.2.3'
 gem 'therubyracer'
 
 # Bundle edge Rails instead:
