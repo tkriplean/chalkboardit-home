@@ -16,16 +16,22 @@ ActiveRecord::Schema.define(:version => 20120407164859) do
   create_table "accounts", :force => true do |t|
     t.string   "identifier"
     t.string   "theme"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-    t.string   "appearance_base_color"
-    t.string   "appearance_style"
+    t.datetime "created_at",                                                  :null => false
+    t.datetime "updated_at",                                                  :null => false
     t.string   "app_title"
-    t.string   "app_notification_email"
-    t.integer  "app_creation_permission"
+    t.string   "contact_email"
+    t.integer  "app_proposal_creation_permission"
     t.string   "socmedia_facebook_page"
-    t.string   "socmedia_twitter_page"
+    t.string   "socmedia_twitter_account"
     t.string   "analytics_google"
+    t.boolean  "app_require_registration_for_perspective", :default => false
+    t.string   "socmedia_facebook_client"
+    t.string   "socmedia_facebook_secret"
+    t.string   "socmedia_twitter_consumer_key"
+    t.string   "socmedia_twitter_consumer_secret"
+    t.string   "socmedia_twitter_oauth_token"
+    t.string   "socmedia_twitter_oauth_token_secret"
+    t.boolean  "requires_civility_pledge_on_registration", :default => false
   end
 
   add_index "accounts", ["identifier"], :name => "index_accounts_on_identifier"
