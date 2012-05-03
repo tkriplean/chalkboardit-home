@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sensibly::Application.load_tasks
+ConsiderThis::Application.load_tasks
