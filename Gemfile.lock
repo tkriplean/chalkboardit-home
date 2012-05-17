@@ -118,7 +118,6 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 3.2.2)
-  sass
   sass-rails (~> 3.2.3)
   therubyracer
   thin
