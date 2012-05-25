@@ -55,7 +55,7 @@
   function init_postits(){
     var r = Raphael("postits", 210, 310);
 
-    var img = r.image("#{image_path('postits.png')}", 0, 0, 190, 256);
+    var img = r.image("#{image_path('postits-old.png')}", 0, 0, 190, 256);
     var anim = Raphael.animation({transform:'R360, 0, 0'}, 1000, "easeInOut");
 
     img.animate(anim);//.delay(3000).repeat(10));
