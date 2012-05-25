@@ -4,6 +4,6 @@
   = f.text_field :identifier
 
   = f.label :theme, 'Select a theme'
-  = f.select :theme, options_for_select(['blogademia', 'lvg', 'considerthis', 'rejectme', 'occupy' ])
+  = f.select :theme, options_for_select(@themes)
 
   = f.submit

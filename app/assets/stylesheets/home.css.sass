@@ -6,13 +6,13 @@
 @import "css3_mixins" 
 @import "mixins"
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600italic,800,300italic|Chelsea+Market|Lobster)
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600italic,800,300italic)
 
 
-@font-face
-  font-family: handOfSean
-  src: url(asset-path('handsean.ttf', 'fonts'))
-  font-weight: 400
+//@font-face
+//  font-family: handOfSean
+//  src: url(asset-path('handsean.ttf', 'fonts'))
+//  font-weight: 400
 
 button, a, input[type="submit"]
   cursor: pointer
@@ -23,15 +23,18 @@ button, a, input[type="submit"]
 html, body
   padding: 0
   margin: 0
+  overflow-x: hidden
 
 html
-  background: image-url('wall3.png') repeat 0 0 #C1DBF3
+  background: image-url('tiled_wall.jpg') repeat 0 0 transparent
   font-family: "open sans"
 
+$board_width: 512px
+$input_width: 370px
 
 #board
   margin: 20px auto 0 auto
-  width: 580px
+  width: $board_width
   height: 350px
   padding: 20px 0 0 0
   position: relative
@@ -42,86 +45,103 @@ html
 
   .board
     top: 0
-    left: 0
+    left: 50%
+    margin-left: -$board_width/2
     z-index: -1
-    width: 580px
+    //width: 672px
 
   .tape1
     left: -25px
-    top: -80px
+    top: -60px
+    width: 120px    
     +transform(-30)
+    opacity: .6
 
   .tape2
-    right: -10px
-    top: -90px
+    right: -30px
+    top: -70px
+    width: 115px
+    opacity: .6
 
   #postits
-    right: -100px
-    top: 17px
-    width: 190px
+    right: -118px
+    top: 28px
+    width: 180px
     position: absolute
+    display: none
+    img
+      width: 180px
 
-  > h1, > textarea, > button, > form
-    width: 440px
+  #value
+    visibility: hidden
     margin: auto
+    text-align: center
+    margin-top: 60px
+    font-size: 11pt
+    color: black
+    color: rgba(black, .85)
+    text-shadow: rgba(#FFFFFF, .5) -1px -1px
 
-  h1
-    font-size: 34pt
-    text-shadow: rgba(white, .3) -1px -1px
-    color: #333
-    padding-bottom: 15px
-    +handwriting
+  #issue_input
+    width: $board_width
+    margin: auto
+    margin-top: 13px
 
-  textarea
-    height: 80px
-    color: #888
-    font-size: 12pt
-    display: block
-    padding: 5px 10px
-    width: 420px
+    *
+      margin: auto
 
-  button, input[type="submit"]
-    margin-top: 20px
-    display: block
-    background: rgba(black, .1)
-    +linear-gradient( rgba(#ccc, .1), rgba(black, .1)  )
-    font-size: 14pt
-    +border-radius(5px)
-    border: 1px solid
-    border-color: #e5e5e5 #666 #666 #e5e5e5
-    +box-shadow(1px, 2px, 3px, rgba(black, .4))
-    padding: 5px 10px
+    textarea
+      width: $input_width - 30
+      height: 80px
+      color: #888
+      font-size: 12pt
+      display: block
+      padding: 5px 10px
+
+    button, input[type="submit"]
+      width: $input_width
+      margin-top: 11px
+      display: block
+      background: rgba(black, .1)
+      +linear-gradient( rgba(#ccc, .1), rgba(black, .1)  )
+      font-size: 14pt
+      +border-radius(5px)
+      border: 1px solid
+      border-color: #e5e5e5 #666 #666 #e5e5e5
+      +box-shadow(1px, 2px, 3px, rgba(black, .4))
+      padding: 5px 10px
 
 #chalkboard
   position: relative
-  width: 630px
+  //width: 630px
   margin: auto
   z-index: 1
-  top: -68px
+  top: -65px
 
   .chalkboard
-    width: 630px
+    //width: 630px
     display: block
     margin: auto
 
 
   #chalk_left
     position: absolute
-    top: 17px
-    left: 40px
+    top: 10px
+    left: 50%
+    margin-left: -315px
 
 
 #floor
   margin-top: 250px
   //background: image-url('floor.jpg') no-repeat 0 0
   position: relative
-  height: 1200px
+  height: 1095px
   width: 100%
   padding: 0
 
 
   #moulding
-    background: image-url('moulding.png') repeat 0 0
+    background: image-url('moulding.jpg') repeat 0 0
     position: absolute
     top: -40px
     left: 0
@@ -137,19 +157,23 @@ html
       position: relative
       top: 0
       left: 50%
-      margin-left: -739px
+      margin-left: -1000px
 
 
   #blue_chalk_on_floor
     position: absolute
-    top: 30px
-    left: 75%
+    top: 500px
+    left: 25%
 
-  #chair
+  #table
+
     position: absolute
-    top: -290px
+    top: -200px
+    left: 50%
+    margin-left: 111px
 
     #organization_account_paper
+      display: none
       position: absolute
       top: 406px
       left: 129px
@@ -157,23 +181,6 @@ html
       &:hover
         cursor: pointer
 
-  #credits
-    position: absolute
-    bottom: 10px
-    left: 50%
-    margin-left: -252px
-
-    .hover
-      display: none
-      position: relative
-      top: -8px
-      left: 1px
-    &:hover
-      .hover
-        display: block
-      cursor: pointer
-      .base
-        display: none
 
 .home
   display: none

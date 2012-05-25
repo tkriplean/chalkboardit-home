@@ -1,4 +1,4 @@
-ConsiderThis::Application.routes.draw do
+ChalkboardIt::Application.routes.draw do
   root :to => "home#index"
   resources :accounts
 end

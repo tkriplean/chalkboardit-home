@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
 
   def new
     @account = Account.new
+    @themes = ['blogademia', 'lvg', 'chalkboardit', 'rejectme', 'occupy', 'policyninja' ]
   end
 
   def create

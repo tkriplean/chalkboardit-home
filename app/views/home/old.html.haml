@@ -1,25 +1,22 @@
 
 #board
-  = image_tag 'posterheading.png', :class => 'board'
+  = image_tag 'board.png', :class => 'board'
   = image_tag 'tape.png', :class => 'tape1'
   = image_tag 'tape.png', :class => 'tape2'
   #postits
-    //= image_tag 'postits.png'
+
+  %h1
+    Consider This...
 
   - port_string = request.port != 80 ? ':' + request.port.to_s : '' 
+  = form_tag "http://help.#{request.host}#{port_string}/proposals", :method => :post do
 
-  #value
-    Find the roadblocks. Work through them. 
-  
-  #issue_input
-    = form_tag "http://help.#{request.host}#{port_string}/proposals", :method => :post do
+    = text_area_tag 'proposal[description]', nil, :placeholder => 'What issue do you want to consider?'
 
-      = text_area_tag 'proposal[description]', nil, :placeholder => 'What issue do you want to consider?'
-
-      = submit_tag 'Invite people to help think through it'
+    = submit_tag 'Invite people to help think through it'
 
 #chalkboard
-  = image_tag 'chalkboard2.png', :class => 'chalkboard'
+  = image_tag 'chalkboard.png', :class => 'chalkboard'
 
   #chalk_left
         
@@ -29,51 +26,47 @@
   #moulding
 
   #base
-    %span{ :'data-defer-src' => "#{image_path 'wood_floor.jpg'}"}
-    %noscript
-      = image_tag 'wood_floor.jpg'
+    = image_tag 'floor.jpg'
 
   #blue_chalk_on_floor
-    %span{ :'data-defer-src' => "#{image_path 'blue_chalk_on_floor.png'}"}
-    %noscript
-      = image_tag 'blue_chalk_on_floor.png'
-  #table
-    %span{ :'data-defer-src' => "#{image_path 'table.png'}"}
-    %noscript
-      = image_tag 'table.png'
+    = image_tag 'blue_chalk_on_floor.png'
+
+  #chair
+    = image_tag 'chair.png'
 
     #organization_account_paper
-      //%span{ :'data-defer-src' => "#{image_path 'organizational_account.png'}"}
+      = image_tag 'organizational_account.png'
+
+  #credits
+    = image_tag 'credit_hover.png', :class => 'hover'
+
+    = image_tag 'credits.png', :class => 'base'
 
 
 :javascript
 
   $(document).ready(function(){
-    download_delayed_images();
     init_chalk();
-    //init_postits();
+    init_postits();
   });
 
-  function download_delayed_images(){
-    console.log($('[data-defer-src]'))
-    $('[data-defer-src]').replaceWith(function(index){
-      return $('<img>').attr('src', $(this).attr('data-defer-src'));
-    });
 
-  }
 
   function init_postits(){
     var r = Raphael("postits", 210, 310);
 
     var img = r.image("#{image_path('postits.png')}", 0, 0, 190, 256);
-    //var anim = Raphael.animation({transform:'R360, 0, 0'}, 1000, "easeInOut");
+    var anim = Raphael.animation({transform:'R360, 0, 0'}, 1000, "easeInOut");
 
-    //img.animate(anim);//.delay(3000).repeat(10));
-    img.show();
+    img.animate(anim);//.delay(3000).repeat(10));
   }
 
   function init_chalk(){
     var r = Raphael("chalk_left", 100, 480);
+
+    $(document).scroll(function(){
+      angle = .6;
+    });
 
     var string = r.path("M50,353l0,-398"),
         img = r.image("#{image_path('yellow_chalk.png')}", 42.5, 350, 15, 49),
@@ -89,6 +82,8 @@
       .push(puddy);
 
     string.attr({stroke: '#bbb', fill: "none", "stroke-width": 2});
+
+    $(document).mousemove(startMovement);
       
     function startMovement(e){
       if (!is_oscilating ){
@@ -111,13 +106,6 @@
         $(document).mousemove(startMovement); 
       }
     }
-
-    $(document).mousemove(startMovement);
-
-    $(document).scroll(function(){
-      angle = .6;
-    });
-
 
   }
 

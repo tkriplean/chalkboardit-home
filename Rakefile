@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ConsiderThis::Application.load_tasks
+ChalkboardIt::Application.load_tasks
