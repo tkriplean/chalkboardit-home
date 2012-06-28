@@ -1,3 +1,29 @@
+=heading
 
-=handwriting
-  font-family: 'handOfSean'
+=button($text_color: hsl(0,0,80%), $bground_color: hsl(0,0,45%), $darken_amt: 10%)
+  $bottom_color: darken($bground_color, $darken_amt)
+  $border_color: darken($bottom_color, 20%)
+  +border-radius(5px)
+  +box-shadow-straight('0 1px 0 rgba(255,255,255,0.3) inset, 0 1px 3px rgba(0,0,0,0.3)')    
+  font-family: "Patua One", Georgia, Times, "Times New Roman", serif
+
+  display: inline-block
+  font-weight: bold
+  position: relative
+  text-decoration: none
+  +transition(all 0.4s linear)
+  zoom: 1
+  border: 1px solid darken($bottom_color, 5%)
+  text-shadow: 0 -1px 0 $border_color
+  background-color: $bground_color
+  +complex-gradient(opacify($bground_color, .9), opacify($bottom_color, .9), $from_stop : 0%, $to_stop: 100%)
+  padding: 3px 10px
+  color: $text_color
+  cursor: pointer
+  +heading
+
+  &:hover
+    +box-shadow-straight('0 1px 2px rgba(255,255,255,0.5) inset, 0 1px 5px rgba(0,0,0,0.5)')    
+    +complex-gradient($bground_color, $bottom_color, $from_stop : 0%, $to_stop: 75%)
+    border-color: $border_color
+    color: lighten($text-color, 20%)

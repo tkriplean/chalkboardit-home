@@ -6,7 +6,7 @@
 @import "css3_mixins" 
 @import "mixins"
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600italic,800,300italic)
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800|Patua+One)
 
 
 //@font-face
@@ -15,10 +15,8 @@
 //  font-weight: 400
 
 button, a, input[type="submit"]
-  cursor: pointer
-  opacity: .8
-  &:hover
-    opacity: 1
+  +button($text_color: hsl(0,0,80%), $bground_color: hsl(0,0,45%), $darken_amt: 10%)
+
 
 html, body
   padding: 0
@@ -27,7 +25,7 @@ html, body
 
 html
   background: image-url('tiled_wall.jpg') repeat 0 0 transparent
-  font-family: "open sans"
+  font-family: 'Open Sans', Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif
 
 $board_width: 512px
 $input_width: 370px
@@ -46,7 +44,7 @@ $input_width: 370px
   .board
     top: 0
     left: 50%
-    margin-left: -$board_width/2
+    margin-left: -266px
     z-index: -1
     //width: 672px
 
@@ -56,12 +54,13 @@ $input_width: 370px
     width: 120px    
     +transform(-30)
     opacity: .6
+    display: none
 
   .tape2
-    right: -30px
-    top: -70px
-    width: 115px
-    opacity: .6
+    right: 36%
+    top: -73px
+    width: 124px
+    opacity: .7
 
   #postits
     right: -118px
@@ -102,14 +101,14 @@ $input_width: 370px
       width: $input_width
       margin-top: 11px
       display: block
-      background: rgba(black, .1)
-      +linear-gradient( rgba(#ccc, .1), rgba(black, .1)  )
-      font-size: 14pt
+      //background: rgba(black, .1)
+      //+linear-gradient( rgba(#ccc, .1), rgba(black, .1)  )
+      font-size: 100%
       +border-radius(5px)
-      border: 1px solid
-      border-color: #e5e5e5 #666 #666 #e5e5e5
-      +box-shadow(1px, 2px, 3px, rgba(black, .4))
-      padding: 5px 10px
+      //border: 1px solid
+      //border-color: #e5e5e5 #666 #666 #e5e5e5
+      //+box-shadow(1px, 2px, 3px, rgba(black, .4))
+      //padding: 5px 10px
 
 #chalkboard
   position: relative
@@ -158,12 +157,17 @@ $input_width: 370px
       top: 0
       left: 50%
       margin-left: -1000px
+      width: 2000px
 
 
   #blue_chalk_on_floor
     position: absolute
     top: 500px
     left: 25%
+  #credits
+    bottom: 150px
+    right: 70%
+    position: absolute
 
   #table
 
@@ -173,10 +177,9 @@ $input_width: 370px
     margin-left: 111px
 
     #organization_account_paper
-      display: none
       position: absolute
-      top: 406px
-      left: 129px
+      top: 25px
+      left: 84px
 
       &:hover
         cursor: pointer

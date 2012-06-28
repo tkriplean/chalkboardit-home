@@ -19,7 +19,7 @@
       = submit_tag 'Invite people to help think through it'
 
 #chalkboard
-  = image_tag 'chalkboard2.png', :class => 'chalkboard'
+  = image_tag 'chalkboard.png', :class => 'chalkboard'
 
   #chalk_left
         
@@ -37,13 +37,21 @@
     %span{ :'data-defer-src' => "#{image_path 'blue_chalk_on_floor.png'}"}
     %noscript
       = image_tag 'blue_chalk_on_floor.png'
+
+  #credits
+    %span{ :'data-defer-src' => "#{image_path 'credits.png'}"}
+    %noscript
+      = image_tag 'credits.png'
+
   #table
     %span{ :'data-defer-src' => "#{image_path 'table.png'}"}
     %noscript
       = image_tag 'table.png'
 
     #organization_account_paper
-      //%span{ :'data-defer-src' => "#{image_path 'organizational_account.png'}"}
+      %span{ :'data-defer-src' => "#{image_path 'org_action.png'}"}
+      %noscript
+        = image_tag 'org_action.png'
 
 
 :javascript
