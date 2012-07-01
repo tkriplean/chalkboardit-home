@@ -12,7 +12,8 @@
     Find the roadblocks. Work through them. 
   
   #issue_input
-    = form_tag "https://help.#{request.host}#{port_string}/proposals", :method => :post do
+
+    %form{:"accept-charset" => 'UTF-8', :action => "https://help.#{request.host}#{port_string}/proposals", :method => :post}
 
       = text_area_tag 'proposal[description]', nil, :placeholder => 'What issue do you want to consider?'
 
