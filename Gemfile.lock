@@ -89,8 +89,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    session_off (0.4)
-      actionpack (>= 2.3)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -121,7 +119,6 @@ DEPENDENCIES
   mysql2
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
-  session_off
   therubyracer
   thin
   uglifier (>= 1.0.3)
