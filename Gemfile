@@ -29,7 +29,7 @@ end
 
 gem 'jquery-rails'
 
-#gem 'session_off'
+gem 'session_off'
 
 # https://github.com/lucasefe/themes_for_rails
 # gem "themes_for_rails", '0.5.0.pre'
