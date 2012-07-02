@@ -64,7 +64,6 @@
   });
 
   function download_delayed_images(){
-    console.log($('[data-defer-src]'))
     $('[data-defer-src]').replaceWith(function(index){
       return $('<img>').attr('src', $(this).attr('data-defer-src'));
     });

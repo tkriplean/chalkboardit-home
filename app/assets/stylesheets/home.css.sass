@@ -16,7 +16,7 @@
 
 a
   cursor: pointer
-  
+
 button, input[type="submit"]
   +button($text_color: hsl(0,0,80%), $bground_color: hsl(0,0,45%), $darken_amt: 10%)
 
@@ -27,7 +27,8 @@ html, body
   overflow-x: hidden
 
 html
-  background: image-url('tiled_wall.jpg') repeat 0 0 transparent
+  //background: image-url('tiled_wall.jpg') repeat 0 0 transparent
+  background: inline-image('tiled_wall3.jpg') repeat 0 0 transparent
   font-family: 'Open Sans', Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif
 
 $board_width: 512px
@@ -143,7 +144,7 @@ $input_width: 370px
 
 
   #moulding
-    background: image-url('moulding.jpg') repeat 0 0
+    background: inline-image('moulding.jpg') repeat 0 0
     position: absolute
     top: -40px
     left: 0
