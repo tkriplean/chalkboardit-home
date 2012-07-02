@@ -1,0 +1,78 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
+//
+//= require jquery
+//= require jquery_ujs
+//= require raphael
+//= require raphael.dropshadow
+
+
+  $(document).ready(function(){
+    download_delayed_images();
+    init_chalk();
+  });
+
+  function download_delayed_images(){
+    $('[data-defer-src]').replaceWith(function(index){
+      return $('<img>').attr('src', $(this).attr('data-defer-src'));
+    });
+
+  }
+
+  function init_chalk(){
+    var r = Raphael("chalk_left", 100, 480);
+
+    var string = r.path("M50,353l0,-398"),
+        img = r.image("<%= image_path('yellow_chalk.png') %>", 42.5, 350, 15, 49),
+        puddy = r.circle(50,3,3).attr({fill:'rgba(50,50,50, .8)', stroke:"none"}),
+        set = r.set(),
+        is_oscilating = false,
+        angle, modifier, dampening, speed;
+    
+    set
+      .dropShadow(500, 23, 23) //don't think this is working
+      .push(img)
+      .push(string)
+      .push(puddy);
+
+    string.attr({stroke: '#bbb', fill: "none", "stroke-width": 2});
+      
+    function startMovement(e){
+      if (!is_oscilating ){
+
+        is_oscilating = true;
+        $(document).unbind('mousemove', startMovement);
+        modifier = 1; angle = .6; dampening = .85; speed = 800;
+        oscillate();
+      }
+    }
+
+    function oscillate(){
+      if ( angle > .02  ) {
+        set
+          .animate({transform: 'r' + angle * modifier +',50,0'}, speed, "easeInOut", oscillate);
+        modifier *= -1;
+        angle *= dampening;
+      } else {
+        is_oscilating = false;
+        $(document).mousemove(startMovement); 
+      }
+    }
+
+    $(document).mousemove(startMovement);
+
+    $(document).scroll(function(){
+      angle = .6;
+    });
+
+
+  }
