@@ -1,1 +1,1 @@
-ChalkboardIt::Application.config.google_analytics = ''
+ChalkboardIt::Application.config.google_analytics = 'UA-33011325-1'
